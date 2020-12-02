@@ -4,7 +4,7 @@ class Customer(models.Model):
   first_name = models.CharField(max_length=200)
   last_name = models.CharField(max_length=200)
   address_1 = models.CharField(max_length=300)
-  address_2 = models.CharField(max_length=300)
+  address_2 = models.CharField(blank=True, max_length=300)
   city = models.CharField(max_length=200)
   state = models.CharField(max_length=200)
   postal_code = models.CharField(max_length=20)
