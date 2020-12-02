@@ -17,6 +17,7 @@ class Gift(models.Model):
     Customer,
     null=True,
     blank=True,
+    related_name='gifts',
     on_delete=models.CASCADE
   )
   plan_name = models.CharField(max_length=300)
@@ -31,6 +32,7 @@ class Subscription(models.Model):
     Customer,
     null=True,
     blank=True,
+    related_name='subscriptions',
     on_delete=models.CASCADE
   )
   plan_name = models.CharField(max_length=300)
