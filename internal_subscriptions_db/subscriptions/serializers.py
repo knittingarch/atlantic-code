@@ -30,8 +30,8 @@ class CustomerSerializer(serializers.HyperlinkedModelSerializer):
 
   def create(self, validated_data):
     gift_data = validated_data.pop('gifts')
-    subscription_data = validated_data('subscriptions')
+    subscription_data = validated_data.pop('subscriptions')
     customer = Customer.objects.create(**validated_data)
-    customer.gifts.add(**gift_data)
-    customer.subscriptions.add(**subscription_data)
+    customer.gifts.set(gift_data)
+    customer.subscriptions.set(subscription_data)
     return customer
